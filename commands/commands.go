@@ -2,19 +2,19 @@ package commands
 
 import (
 	"fmt"
-	"github.com/mgutz/ansi"
-	"github.com/trntv/sshed/host"
-	"github.com/trntv/sshed/keychain"
-	"github.com/trntv/sshed/ssh"
-	"github.com/urfave/cli"
-	"gopkg.in/AlecAivazis/survey.v1"
-	"io/ioutil"
 	"os"
 	"os/exec"
 	"os/user"
 	"runtime"
 	"sort"
 	"strings"
+
+	"github.com/mgutz/ansi"
+	"github.com/trntv/sshed/host"
+	"github.com/trntv/sshed/keychain"
+	"github.com/trntv/sshed/ssh"
+	"github.com/urfave/cli"
+	"gopkg.in/AlecAivazis/survey.v1"
 )
 
 type Commands struct {
@@ -157,7 +157,7 @@ func (cmds *Commands) createCommand(c *cli.Context, srv *host.Host, options *opt
 	args = append(args, fmt.Sprintf("-F %s", ssh.Config.Path))
 
 	if pk := srv.PrivateKey(); pk != "" {
-		tf, err := ioutil.TempFile("", "")
+		tf, err := os.CreateTemp("", "")
 		defer os.Remove(tf.Name())
 		defer tf.Close()
 

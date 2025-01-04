@@ -7,8 +7,9 @@ import (
 	"crypto/rand"
 	"errors"
 	"fmt"
-	"github.com/boltdb/bolt"
 	"io"
+
+	"github.com/boltdb/bolt"
 )
 
 var metaKey = []byte("encrypted")

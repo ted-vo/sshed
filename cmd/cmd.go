@@ -2,14 +2,15 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"os/user"
+	"path/filepath"
+
 	"github.com/mgutz/ansi"
 	"github.com/trntv/sshed/commands"
 	"github.com/trntv/sshed/keychain"
 	"github.com/trntv/sshed/ssh"
 	"github.com/urfave/cli"
-	"os"
-	"os/user"
-	"path/filepath"
 )
 
 var version, build string

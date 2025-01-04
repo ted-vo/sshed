@@ -1,9 +1,10 @@
 package host
 
 import (
+	"strings"
+
 	"github.com/kevinburke/ssh_config"
 	"github.com/trntv/sshed/keychain"
-	"strings"
 )
 
 type Host struct {

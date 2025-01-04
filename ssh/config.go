@@ -3,13 +3,13 @@ package ssh
 import (
 	"bytes"
 	"fmt"
-	"github.com/kevinburke/ssh_config"
-	"github.com/trntv/sshed/host"
-	"io/ioutil"
 	"os"
 	"os/user"
 	"path/filepath"
 	"regexp"
+
+	"github.com/kevinburke/ssh_config"
+	"github.com/trntv/sshed/host"
 )
 
 var Config *sshConfig
@@ -36,7 +36,7 @@ func Parse(path string) (conf *sshConfig, err error) {
 	conf = &sshConfig{Path: path}
 
 	if _, err := os.Stat(conf.Path); os.IsNotExist(err) == false {
-		conf.Content, err = ioutil.ReadFile(conf.Path)
+		conf.Content, err = os.ReadFile(conf.Path)
 		if err != nil {
 			return nil, err
 		}
@@ -183,7 +183,7 @@ func (s *sshConfig) Save() (err error) {
 }
 
 func (s *sshConfig) SaveContent(data []byte) (err error) {
-	err = ioutil.WriteFile(s.Path, data, os.FileMode(0644))
+	err = os.WriteFile(s.Path, data, os.FileMode(0644))
 	if err != nil {
 		return err
 	}

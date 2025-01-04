@@ -3,8 +3,9 @@ package keychain
 import (
 	"bytes"
 	"encoding/gob"
-	"github.com/boltdb/bolt"
 	"time"
+
+	"github.com/boltdb/bolt"
 )
 
 var Bootstrapped bool

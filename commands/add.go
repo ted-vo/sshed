@@ -1,12 +1,13 @@
 package commands
 
 import (
+	"os/user"
+
 	"github.com/trntv/sshed/host"
 	"github.com/trntv/sshed/keychain"
 	"github.com/trntv/sshed/ssh"
 	"github.com/urfave/cli"
 	"gopkg.in/AlecAivazis/survey.v1"
-	"os/user"
 )
 
 type answers struct {

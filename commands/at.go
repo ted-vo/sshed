@@ -3,14 +3,15 @@ package commands
 import (
 	"bytes"
 	"fmt"
+	"io"
+	"log"
+	"sync"
+
 	"github.com/mgutz/ansi"
 	"github.com/pkg/errors"
 	"github.com/trntv/sshed/ssh"
 	"github.com/urfave/cli"
 	"gopkg.in/AlecAivazis/survey.v1"
-	"io/ioutil"
-	"log"
-	"sync"
 )
 
 func (cmds *Commands) newAtCommand() cli.Command {
@@ -77,7 +78,7 @@ func (cmds *Commands) atAction(c *cli.Context) (err error) {
 				log.Panicln(err)
 			}
 
-			sr, err := ioutil.ReadAll(w)
+			sr, err := io.ReadAll(w)
 			if err != nil {
 				log.Panicln(err)
 			}
